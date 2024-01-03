@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Welcome to Flix+</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhh5Ejaa8ZRiw9kfBZfYLNtQAVse3_LOw64Wft3YmLDw6imLXLXYTyHGCZ8jknE3CdGYhlXyzWg4dq2QdOXpxscwdEVs98iOkAUPf3_NIAhyphenhyphenXqz4Mfy7oCJVvPQoT9_qexxfcO4FAxHVZX6mpecjxTaJECI4ZF8krEdbhvNdaPcM0-_T0R0sV3_FftQu008/s1433/fhn.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .offline-message-container {
+            display: none;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 10px;
+            max-width: 80%;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+            z-index: 999;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 36px;
+            margin: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+
+        .button {
+            background-color: #FF0000;
+            color: #000000;
+            font-size: 32px;
+            padding: 1px 37px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #990000;
+            color: #FFFFFF;
+            transform: scale(1.05);
+        }
+
+        .logo {
+            width: 100%;
+            max-width: 400px;
+            margin-top: -150px;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+    <script>
+        function redirectToNewLink() {
+            var firstLinkWindow = window.open('https://youtube.com/playlist?list=PLVLoWQFkZbhW1YSpUGOUrqAu7SvJCaZNQ&si=3obK2cOjN_XF4mwU');
+            setTimeout(function () {
+                firstLinkWindow.location.href = 'https://flixplusnet.blogspot.com/?m=1';
+            }, 1000);
+        }
+
+        // Check if the user is online
+        function checkOnlineStatus() {
+            var offlineMessageContainer = document.getElementById('offline-message-container');
+            if (!navigator.onLine) {
+                // Display offline message and hide other content
+                offlineMessageContainer.style.display = 'flex';
+            } else {
+                // Hide offline message if online
+                offlineMessageContainer.style.display = 'none';
+            }
+        }
+
+        // Check online status on page load
+        checkOnlineStatus();
+
+        // Listen for changes in online status
+        window.addEventListener('online', checkOnlineStatus);
+        window.addEventListener('offline', checkOnlineStatus);
+    </script>
+</head>
+
+<body>
+    <div class="offline-message-container" id="offline-message-container">
+        <p>You are currently offline. Please check your internet connection.</p>
+    </div>
+    <div class="button-container">
+        <img class="logo" src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0XoUp_r8vMjEYAJdkOsNctfHJcFHXWEOBnqZwspjj6mR_v9jWxNRw73skjxJmHFvGbRwfIlmuSz7MGv64vcdQY8h0lucZenti_ltJiM1uX_lhh_dndhxMlkWNuGCvnCTeNOSRLFQKc5a4CWo1DL32FAf0AZblZNeKBf2mUlrGKqxATlTXl5081irmsNp6/s2828/hsbs.png' alt="Logo">
+        <button class="button" onclick="redirectToNewLink()">Open</button>
+    </div>
+</body>
+
+</html>
